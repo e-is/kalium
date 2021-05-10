@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <name>kalium</name>
-    <url>http://github.com/abstractj/kalium</url>
+    <url>http://github.com/E-IS/kalium</url>
 
     <parent>
         <groupId>org.sonatype.oss</groupId>
@@ -20,11 +20,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Project dependencies -->
-        <jnr-ffi.version>2.0.5</jnr-ffi.version>
-        <junit.version>4.11</junit.version>
+        <jnr-ffi.version>2.2.2</jnr-ffi.version>
+        <junit.version>4.12</junit.version>
 
         <!-- Minimum JDK version required -->
-        <jdk.version>1.6</jdk.version>
+        <jdk.version>1.8</jdk.version>
 
         <!-- Minimum Maven version required to build the project -->
         <maven.version>3.0.5</maven.version>
@@ -38,12 +38,23 @@
         <release-plugin.version>2.4</release-plugin.version>
         <gpg-plugin.version>1.4</gpg-plugin.version>
 
+        <!-- distribution management -->
+        <projectId>${project.artifactId}</projectId>
+        <site.server>eis-public-reports</site.server>
+        <site.host>doc.e-is.pro</site.host>
+        <site.path>/var/www/doc.e-is.pro/duniter4j</site.path>
+        <site.repository>scpexe://${site.host}${site.path}</site.repository>
+        <release.server>eis-nexus-deploy</release.server>
+        <release.repository>https://nexus.e-is.pro/nexus/content/repositories/duniter4j-releases</release.repository>
+        <snapshot.server>eis-nexus-deploy</snapshot.server>
+        <snapshot.repository>https://nexus.e-is.pro/nexus/content/repositories/duniter4j-snapshots</snapshot.repository>
+
     </properties>
 
     <scm>
-        <connection>scm:git:git@github.com:abstractj/kalium.git</connection>
-        <developerConnection>scm:git:git@github.com:abstractj/kalium.git</developerConnection>
-        <url>https://github.com/abstractj/kalium</url>
+        <connection>scm:git:git@github.com:E-IS/kalium.git</connection>
+        <developerConnection>scm:git:git@github.com:E-IS/kalium.git</developerConnection>
+        <url>https://github.com/E-IS/kalium</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -70,6 +81,15 @@
             <name>Douglas Campos</name>
             <url>http://github.com/qmx</url>
             <email>qmx@qmx.me</email>
+            <roles>
+                <role>Software Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>blavenie</id>
+            <name>Benoit Lavenier</name>
+            <url>http://github.com/blavenie</url>
+            <email>benoit.lavenier@e-is.pro</email>
             <roles>
                 <role>Software Developer</role>
             </roles>
@@ -172,6 +192,21 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>${release.server}</id>
+            <url>${release.repository}</url>
+        </repository>
+        <snapshotRepository>
+            <id>${snapshot.server}</id>
+            <url>${snapshot.repository}</url>
+        </snapshotRepository>
+        <site>
+            <id>${site.server}</id>
+            <url>${site.repository}</url>
+        </site>
+    </distributionManagement>
 
     <profiles>
         <profile>
