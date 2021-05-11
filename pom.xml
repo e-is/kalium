@@ -4,7 +4,7 @@
 
     <groupId>org.abstractj.kalium</groupId>
     <artifactId>kalium</artifactId>
-    <version>0.8.1-SNAPSHOT</version>
+    <version>0.8.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>kalium</name>
@@ -37,12 +37,14 @@
         <enforcer-plugin.version>1.1</enforcer-plugin.version>
         <release-plugin.version>3.0.0-M4</release-plugin.version>
         <gpg-plugin.version>3.0.1</gpg-plugin.version>
+        <site-plugin.version>3.9.1</site-plugin.version>
+        <wagon-ssh.version>3.4.3</wagon-ssh.version>
 
         <!-- distribution management -->
         <projectId>${project.artifactId}</projectId>
         <site.server>eis-public-reports</site.server>
         <site.host>doc.e-is.pro</site.host>
-        <site.path>/var/www/doc.e-is.pro/duniter4j</site.path>
+        <site.path>/var/www/doc.e-is.pro/kalium</site.path>
         <site.repository>scpexe://${site.host}${site.path}</site.repository>
         <release.server>eis-nexus-deploy</release.server>
         <release.repository>https://nexus.e-is.pro/nexus/content/repositories/duniter4j-releases</release.repository>
@@ -187,10 +189,32 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>${release-plugin.version}</version>
                 <configuration>
-                    <pushChanges>false</pushChanges>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
+
+            <!-- plugin site -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${site-plugin.version}</version>
+            </plugin>
         </plugins>
+
+        <!-- Enabling the use of scpexe with maven 3.0 -->
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh-external</artifactId>
+                <version>${wagon-ssh.version}</version>
+            </extension>
+            <!-- Enabling the use of scp/sftp:// with maven 3.0 -->
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>${wagon-ssh.version}</version>
+            </extension>
+        </extensions>
     </build>
 
     <distributionManagement>
