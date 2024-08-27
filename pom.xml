@@ -47,9 +47,9 @@
         <site.path>/var/www/doc.e-is.pro/kalium</site.path>
         <site.repository>scpexe://${site.host}${site.path}</site.repository>
         <release.server>eis-nexus-deploy</release.server>
-        <release.repository>https://nexus.e-is.pro/nexus/content/repositories/duniter4j-releases</release.repository>
+        <release.repository>https://nexus.e-is.pro/repository/duniter4j-releases</release.repository>
         <snapshot.server>eis-nexus-deploy</snapshot.server>
-        <snapshot.repository>https://nexus.e-is.pro/nexus/content/repositories/duniter4j-snapshots</snapshot.repository>
+        <snapshot.repository>https://nexus.e-is.pro/repository/duniter4j-snapshots</snapshot.repository>
 
     </properties>
 
