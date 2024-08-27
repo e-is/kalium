@@ -47,6 +47,7 @@ public class NaCl {
                 LibraryLoader.create(Sodium.class)
                         .search("/usr/local/lib")
                         .search("/opt/local/lib")
+                        .search("/opt/homebrew/lib")
                         .search("lib")
                         .load(LIBRARY_NAME);
 
