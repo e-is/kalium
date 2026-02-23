@@ -17,8 +17,10 @@ fi;
 cd ${PROJECT_DIR}
 
 if [[ "_" == "_${RELEASE_OPTS}" ]]; then
-  RELEASE_OPTS=-Dgpg.passphraseServerId=gpg.passphrase
+  echo "Please configure env RELEASE_OPTS with -Dgpg.keyname=<YOUR_GPG_KEYNAME>"
+  exit 1
 fi;
+
 
 # Try to sign artifacts
 #mvn install -DskipTests -Prelease-sign-artifacts ${RELEASE_OPTS}

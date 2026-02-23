@@ -50,10 +50,11 @@
         <site.host>doc.e-is.pro</site.host>
         <site.path>/var/www/doc.e-is.pro/kalium</site.path>
         <site.repository>scpexe://${site.host}${site.path}</site.repository>
-        <release.server>eis-nexus-deploy</release.server>
-        <release.repository>https://nexus.e-is.pro/repository/duniter4j-releases</release.repository>
-        <snapshot.server>eis-nexus-deploy</snapshot.server>
-        <snapshot.repository>https://nexus.e-is.pro/repository/duniter4j-snapshots</snapshot.repository>
+
+        <release.server>github</release.server>
+        <release.repository>https://maven.pkg.github.com/E-IS/kalium</release.repository>
+        <snapshot.server>github</snapshot.server>
+        <snapshot.repository>https://maven.pkg.github.com/E-IS/kalium</snapshot.repository>
 
     </properties>
 
@@ -275,6 +276,24 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>github</id>
+            <properties>
+                <release.server>github</release.server>
+                <release.repository>https://maven.pkg.github.com/E-IS/kalium</release.repository>
+                <snapshot.server>github</snapshot.server>
+                <snapshot.repository>https://maven.pkg.github.com/E-IS/kalium</snapshot.repository>
+            </properties>
+        </profile>
+        <profile>
+            <id>eis</id>
+            <properties>
+                <release.server>eis-nexus-deploy</release.server>
+                <release.repository>https://nexus.e-is.pro/repository/duniter4j-releases</release.repository>
+                <snapshot.server>eis-nexus-deploy</snapshot.server>
+                <snapshot.repository>https://nexus.e-is.pro/repository/duniter4j-snapshots</snapshot.repository>
+            </properties>
         </profile>
         <profile>
             <id>jdk8</id>
