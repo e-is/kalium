@@ -10,7 +10,7 @@ A Java binding to [Networking and Cryptography](http://nacl.cr.yp.to/) library b
 
 ## Requirements
 
-* JDK 6 or [higher](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* JDK 8 or [higher](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Apache Maven](http://maven.apache.org/guides/getting-started/)
 
 ## Installation

@@ -60,11 +60,18 @@ public class NaCl {
 
     private static final void checkVersion(Sodium lib) {
         if (!versionSupported) {
-            String[] version = lib.sodium_version_string().split("\\.");
-            versionSupported = version.length >= 3 &&
-                MIN_SUPPORTED_VERSION[0] <= new Integer(version[0]) &&
-                MIN_SUPPORTED_VERSION[1] <= new Integer(version[1]) &&
-                MIN_SUPPORTED_VERSION[2] <= new Integer(version[2]);
+            String versionString = lib.sodium_version_string();
+            // Extract version number (e.g., "1.0.18") using regex, ignoring any additional info
+            java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("^(\\d+)\\.(\\d+)\\.(\\d+)");
+            java.util.regex.Matcher matcher = pattern.matcher(versionString);
+            if (matcher.find()) {
+                int major = Integer.parseInt(matcher.group(1));
+                int minor = Integer.parseInt(matcher.group(2));
+                int patch = Integer.parseInt(matcher.group(3));
+                versionSupported = MIN_SUPPORTED_VERSION[0] <= major &&
+                    MIN_SUPPORTED_VERSION[1] <= minor &&
+                    MIN_SUPPORTED_VERSION[2] <= patch;
+            }
         }
         if (!versionSupported) {
             String message = String.format("Unsupported libsodium version: %s. Please update",
