@@ -4,7 +4,7 @@
 
     <groupId>org.abstractj.kalium</groupId>
     <artifactId>kalium</artifactId>
-    <version>0.8.4-SNAPSHOT</version>
+    <version>0.8.4</version>
     <packaging>jar</packaging>
 
     <name>kalium</name>
@@ -38,7 +38,7 @@
         <javadoc-plugin.version>3.6.3</javadoc-plugin.version>
         <enforcer-plugin.version>3.4.1</enforcer-plugin.version>
         <release-plugin.version>3.0.1</release-plugin.version>
-        <gpg-plugin.version>3.2.5</gpg-plugin.version>
+        <gpg-plugin.version>3.2.8</gpg-plugin.version>
         <site-plugin.version>3.12.1</site-plugin.version>
         <wagon-ssh.version>3.5.3</wagon-ssh.version>
         <surefire-plugin.version>3.2.5</surefire-plugin.version>
@@ -61,7 +61,7 @@
         <connection>scm:git:git@github.com:E-IS/kalium.git</connection>
         <developerConnection>scm:git:git@github.com:E-IS/kalium.git</developerConnection>
         <url>https://github.com/E-IS/kalium</url>
-        <tag>HEAD</tag>
+        <tag>0.8.4</tag>
     </scm>
 
     <licenses>
