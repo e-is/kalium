@@ -31,6 +31,6 @@ mvn release:prepare -Darguments="${RELEASE_OPTS}"
 [[ $? -ne 0 ]] && exit 1
 
 # Perform release
-mvn release:perform
+mvn release:perform -Darguments="${RELEASE_OPTS}"
 [[ $? -ne 0 ]] && exit 1
 
