@@ -50,6 +50,12 @@
         <site.host>doc.e-is.pro</site.host>
         <site.path>/var/www/doc.e-is.pro/kalium</site.path>
         <site.repository>scpexe://${site.host}${site.path}</site.repository>
+
+        <release.server>eis-nexus-deploy</release.server>
+        <release.repository>https://nexus.e-is.pro/repository/duniter4j-releases/</release.repository>
+        <snapshot.server>eis-nexus-deploy</snapshot.server>
+        <snapshot.repository>https://nexus.e-is.pro/repository/duniter4j-snapshots/</snapshot.repository>
+
     </properties>
 
     <scm>
@@ -271,6 +277,19 @@
                 </plugins>
             </build>
         </profile>
+
+        <profile>
+            <id>sumaris-gitlab</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <release.server>sumaris-gitlab-ifremer</release.server>
+                <release.repository>https://gitlab.ifremer.fr/api/v4/projects/1272/packages/</release.repository>
+                <snapshot.server>sumaris-gitlab-ifremer</snapshot.server>
+                <snapshot.repository>https://gitlab.ifremer.fr/api/v4/projects/1272/packages/</snapshot.repository>
+            </properties>
+        </profile>
         <profile>
             <id>github</id>
             <properties>
@@ -282,14 +301,11 @@
         </profile>
         <profile>
             <id>eis</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <release.server>eis-nexus-deploy</release.server>
-                <release.repository>https://nexus.e-is.pro/repository/duniter4j-releases</release.repository>
+                <release.repository>https://nexus.e-is.pro/repository/duniter4j-releases/</release.repository>
                 <snapshot.server>eis-nexus-deploy</snapshot.server>
-                <snapshot.repository>https://nexus.e-is.pro/repository/duniter4j-snapshots</snapshot.repository>
+                <snapshot.repository>https://nexus.e-is.pro/repository/duniter4j-snapshots/</snapshot.repository>
             </properties>
         </profile>
         <profile>
